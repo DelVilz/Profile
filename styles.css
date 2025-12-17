@@ -1,0 +1,94 @@
+:root{
+  --bg: #ffffff;
+  --card: #f6f7fb;
+  --text: #0f1724;
+  --muted: #4b5563;
+  --accent: #2563eb;
+  --btn-bg: var(--accent);
+  --btn-text: #fff;
+}
+
+[data-theme="dark"]{
+  --bg: #0b1120;
+  --card: #0f1724;
+  --text: #e6eef8;
+  --muted: #9aa6b2;
+  --accent: #3b82f6;
+  --btn-bg: var(--accent);
+  --btn-text: #04203a;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,"Helvetica Neue",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:2rem;
+}
+
+/* background canvas covers full viewport */
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.9}
+
+.top{width:100%;max-width:900px;display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.site-title{margin:0;font-size:1.1rem;color:var(--muted)}
+
+.theme-toggle{display:flex;align-items:center}
+.theme-toggle input{display:none}
+.toggle-label{cursor:pointer;display:inline-grid;grid-auto-flow:column;gap:0.5rem;align-items:center}
+
+.card{width:100%;max-width:960px;background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.04);border-radius:12px;padding:1.75rem 1.75rem;display:grid;grid-template-columns:160px 1fr;gap:1.25rem;align-items:start;box-shadow:0 8px 40px rgba(2,6,23,0.35);position:relative;z-index:1;overflow:hidden}
+
+.avatar{margin:0}
+.avatar img{width:160px;height:160px;object-fit:cover;border-radius:12px;border:2px solid rgba(255,255,255,0.06);box-shadow:0 10px 30px rgba(3,10,22,0.6);display:block}
+
+/* fallback avatar when image file is missing */
+.avatar-fallback{width:160px;height:160px;display:inline-grid;place-items:center;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:2px solid rgba(255,255,255,0.04);box-shadow:0 10px 30px rgba(3,10,22,0.6);color:var(--muted);font-weight:700}
+.avatar-fallback svg{width:72px;height:72px;display:block}
+
+/* neon left accent */
+.card::before{content:"";position:absolute;left:0;top:0;width:6px;height:100%;background:linear-gradient(180deg,var(--accent),#7c3aed);filter:blur(8px);opacity:0.95}
+
+.info h2{margin:0 0 .25rem 0}
+.title{margin:0;color:var(--muted);font-family:"Segoe UI Mono",Menlo,Monaco,monospace}
+
+.info h2{margin:0 0 .25rem 0}
+.title{margin:0;color:var(--muted)}
+.location{margin:0.65rem 0;color:var(--muted)}
+
+.description{line-height:1.5;color:var(--text);margin-bottom:0.75rem}
+.capabilities{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem}
+.cap-item{display:flex;flex-direction:column;gap:.35rem}
+.cap-row{display:flex;justify-content:space-between;font-size:.95rem;color:var(--muted)}
+.progress{height:10px;background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(0,0,0,0.06));border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#7c3aed);width:0%;transition:width 900ms cubic-bezier(.2,.9,.2,1)}
+
+.links{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.btn{display:inline-block;padding:.55rem .9rem;border-radius:8px;background:var(--btn-bg);color:var(--btn-text);text-decoration:none;font-weight:600}
+.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+.social{display:inline-block;padding:.45rem .7rem;border-radius:6px;background:transparent;border:1px dashed rgba(255,255,255,0.04);color:var(--muted);text-decoration:none;font-size:.9rem}
+
+.footer{margin-top:1rem;color:var(--muted);font-size:.9rem}
+
+@media (max-width:640px){
+  .card{grid-template-columns:1fr;align-items:center;text-align:center}
+  .avatar img{width:140px;height:140px}
+  .theme-toggle{margin-left:0}
+}
+
+/* small devices: shrink card padding */
+@media (max-width:420px){
+  .card{padding:1rem}
+}
+
+/* small fancy focus styles */
+a:focus,button:focus,input:focus{outline:3px solid rgba(59,130,246,0.18);outline-offset:3px}
+
+/* transition for theme swap */
+:root,body,.card{transition:background-color .25s,color .25s}

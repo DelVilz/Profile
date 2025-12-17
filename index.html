@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Profile</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <header class="top">
+      <h1 class="site-title">My Profile</h1>
+      <div class="theme-toggle">
+        <input id="theme-checkbox" type="checkbox" aria-label="Toggle dark mode" />
+        <label for="theme-checkbox" class="toggle-label" title="Toggle dark/light">
+          <span class="sun">☀️</span>
+          <span class="moon">🌙</span>
+        </label>
+      </div>
+    </header>
+
+    <main class="card">
+      <figure class="avatar">
+        <img src="profile.jpg" alt="Profile photo" id="profile-img" />
+      </figure>
+
+      <section class="info">
+        <h2 id="name">Villas, Dale Jasper O.</h2>
+        <p class="title"><code>&lt;Developer /&gt;</code> Web Developer & Designer</p>
+
+        <p class="location">📍 <strong>Location:</strong> Cebu City, Philippines</p>
+
+        <h3>About Me</h3>
+        <p class="description">I am a BSIT student in block 2-B. I am an irregular student, previously a student in CIT-U and was transferred here to CTU due to financial problems.</p>
+
+        <h3>Capabilities</h3>
+        <div class="capabilities">
+          <div class="cap-item">
+            <div class="cap-row"><span>HTML &amp; CSS</span><span class="cap-value" data-level="95">95%</span></div>
+            <div class="progress"><span style="width:0%"></span></div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-row"><span>JavaScript</span><span class="cap-value" data-level="90">90%</span></div>
+            <div class="progress"><span style="width:0%"></span></div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-row"><span>React / Frontend</span><span class="cap-value" data-level="85">85%</span></div>
+            <div class="progress"><span style="width:0%"></span></div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-row"><span>UI / UX</span><span class="cap-value" data-level="80">80%</span></div>
+            <div class="progress"><span style="width:0%"></span></div>
+          </div>
+        </div>
+
+        <div class="links">
+          <a class="btn" href="https://github.com/DelVilz/Profile" target="_blank" rel="noopener noreferrer">Contact</a>
+          <a class="btn secondary" href="https://github.com/DelVilz/Profile" target="_blank" rel="noopener noreferrer">Portfolio</a>
+          <a class="social" href="https://github.com/DelVilz/Profile" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+          <a class="social" href="https://github.com/DelVilz/Profile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Replace the image file named <code>profile.jpg</code> in the same folder to show your photo. View source on <a href="https://github.com/DelVilz/Profile" target="_blank" rel="noopener noreferrer">GitHub</a>.</footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

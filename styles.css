@@ -92,3 +92,15 @@ a:focus,button:focus,input:focus{outline:3px solid rgba(59,130,246,0.18);outline
 
 /* transition for theme swap */
 :root,body,.card{transition:background-color .25s,color .25s}
+
+/* Modal styles */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:40}
+.modal[aria-hidden="false"]{display:flex}
+.modal-backdrop{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,6,23,0.6),rgba(2,6,23,0.6));backdrop-filter:blur(2px)}
+.modal-panel{position:relative;z-index:41;background:var(--card);border-radius:10px;padding:1rem 1.25rem;max-width:420px;width:92%;box-shadow:0 10px 40px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.04)}
+.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem}
+.modal-header h2{margin:0;font-size:1.05rem}
+.modal-close{background:transparent;border:0;color:var(--muted);font-size:1.1rem;cursor:pointer}
+.modal-body{color:var(--text)}
+.contact-email{font-weight:700;color:var(--accent);word-break:break-all}
+.modal-actions{display:flex;gap:.6rem;margin-top:.75rem}

@@ -48,6 +48,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // No file upload UI — the page expects a file named `profile.jpg` in the same folder.
 
+  // Contact modal behavior
+  const contactBtn = document.getElementById('contact-btn');
+  const modal = document.getElementById('contact-modal');
+  const copyBtn = document.getElementById('copy-email');
+  const contactEmail = document.getElementById('contact-email');
+
+  function openModal() {
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'false');
+  }
+  function closeModal() {
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  if (contactBtn) {
+    contactBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+  }
+
+  // close when clicking elements with data-close
+  modal && modal.addEventListener('click', (e) => { if (e.target && e.target.matches('[data-close]')) closeModal(); });
+
+  // copy email to clipboard
+  if (copyBtn && contactEmail) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(contactEmail.textContent.trim());
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => { copyBtn.textContent = 'Copy Email'; }, 2000);
+      } catch (err) {
+        console.warn('Clipboard write failed', err);
+        copyBtn.textContent = 'Copy Failed';
+        setTimeout(() => { copyBtn.textContent = 'Copy Email'; }, 2000);
+      }
+    });
+  }
+
   // animate capability bars
   const caps = document.querySelectorAll('.cap-value');
   caps.forEach(el => {

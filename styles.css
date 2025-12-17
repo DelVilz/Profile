@@ -39,6 +39,9 @@ body{
 .top{width:100%;max-width:900px;display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
 .site-title{margin:0;font-size:1.1rem;color:var(--muted)}
 
+/* make header title look like a non-clickable bordered badge */
+.site-title.button-badge{display:inline-block;padding:.32rem .68rem;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:transparent;color:var(--muted);pointer-events:none}
+
 .theme-toggle{display:flex;align-items:center}
 .theme-toggle input{display:none}
 .toggle-label{cursor:pointer;display:inline-grid;grid-auto-flow:column;gap:0.5rem;align-items:center}
@@ -72,6 +75,9 @@ body{
 .links{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
 .btn{display:inline-block;padding:.55rem .9rem;border-radius:8px;background:var(--btn-bg);color:var(--btn-text);text-decoration:none;font-weight:600}
 .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+.btn.outline{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.12);padding:.5rem .8rem;border-radius:8px;text-decoration:none}
+.btn.outline:hover{transform:translateY(-1px)}
+.btn.outline:active{transform:none}
 .social{display:inline-block;padding:.45rem .7rem;border-radius:6px;background:transparent;border:1px dashed rgba(255,255,255,0.04);color:var(--muted);text-decoration:none;font-size:.9rem}
 
 .footer{margin-top:1rem;color:var(--muted);font-size:.9rem}
